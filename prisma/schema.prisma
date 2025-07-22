@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL") // Pega a URL do arquivo .env
+}
+
+model User {
+  id        Int      @id @default(autoincrement()) // Campo 'id', tipo Inteiro, é a chave primária (@id), e o valor é gerado automaticamente.
+  name      String
+  email     String   @unique // O email deve ser único, não pode haver dois iguais.
+  
+  createdAt DateTime @default(now()) // Data de criação, com valor padrão sendo a data/hora atual.
+  updatedAt DateTime @updatedAt     // Data de atualização, atualizada automaticamente pelo Prisma.
+}
