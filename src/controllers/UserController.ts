@@ -5,7 +5,6 @@ import CreateUserService from "../services/CreateUserService";
 class UserController {
     public async list(request: Request, response: Response):Promise <Response> {
         const listUsers = new ListUsersService;
-
         const users = await listUsers.execute();
         
         return response.json(users)
