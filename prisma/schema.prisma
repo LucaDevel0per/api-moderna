@@ -8,9 +8,10 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement()) // Campo 'id', tipo Inteiro, é a chave primária (@id), e o valor é gerado automaticamente.
+  id        Int      @id @default(autoincrement()) 
   name      String
-  email     String   @unique // O email deve ser único, não pode haver dois iguais.
+  email     String   @unique 
+  password  String
   
   createdAt DateTime @default(now()) // Data de criação, com valor padrão sendo a data/hora atual.
   updatedAt DateTime @updatedAt     // Data de atualização, atualizada automaticamente pelo Prisma.
