@@ -22,7 +22,9 @@ export default function isAuthenticated(
     const [, token] = authHeader.split(' ');
 
     try {
-        const decodedToken = verify(token, '56f33c51b6200f561a1fc27bc6df722226aaacabd6a2598fa09d129105b3ed88')
+        const decodedToken = verify(token, process.env.JWT_SECRET || 'fallback_secret'
+            
+        )
 
         const { sub } = decodedToken as ITokenPayLoad;
 

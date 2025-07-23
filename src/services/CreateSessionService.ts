@@ -34,7 +34,7 @@ class CreateSessionService {
 
         const token = sign(
             {},
-            '56f33c51b6200f561a1fc27bc6df722226aaacabd6a2598fa09d129105b3ed88',
+            process.env.JWT_SECRET || 'fallback_secret',
             {
                 subject: String(user.id),
                 expiresIn: '1d',

@@ -2,7 +2,7 @@ import express, { Express, Request, Response, NextFunction } from "express";
 import 'express-async-errors'
 import router from "./routes";
 
-const app = express();
+export const app = express();
 const port = 3000;
 
 app.use(express.json());
